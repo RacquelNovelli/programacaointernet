@@ -1,28 +1,37 @@
-let inputX = document.querySelector ("#ladoX");
-let inputY = document.querySelector ("#ladoY");
-let inputZ = document.querySelector ("#ladoZ");
-let resultado = document.querySelector ("#resultadoTriangulo")
+let inputX = document.querySelector("#ladoX");
+let inputY = document.querySelector("#ladoY");
+let inputZ = document.querySelector("#ladoZ");
+let resultado = document.querySelector("#resultadoTriangulo");
+let imagem = document.querySelector("#imagemTriangulo");
 let btCalcular = document.querySelector("#btCalcular");
 
-function verificarTriangulo () {
-    let X = Number (inputX.value)
-    let Y = Number (inputY.value)
-    let Z = Number (inputZ.value)
+function verificarTriangulo() {
+    let X = Number(inputX.value);
+    let Y = Number(inputY.value);
+    let Z = Number(inputZ.value);
 
-    if ((X < (Y + Z)) && (Y < (X + Z)) && (Z < (X + Y))) {
-    if (X === Y && Y === Z) {
-           
-        resultado.textContent = "Triangulo Equilatero";
-    } else if (X === Y || X === Z || Y === Z) {
-        resultado.textContent = "Triangulo Isosceles";
+    imagem.style.display = "none"; // Eu pesquisei para esconder a imagem no início, pq ela estava aparecendo.
+
+    if ((X < Y + Z) && (Y < X + Z) && (Z < X + Y)) {
+        if (X === Y && Y === Z) {
+            resultado.textContent = "Triangulo Equilatero";
+            imagem.src = "imagens/equilatero.png";
+            imagem.style.display = "block";
+        } else if (X === Y || X === Z || Y === Z) {
+            resultado.textContent = "Triangulo Isosceles";
+            imagem.src = "imagens/isosceles.png";
+            imagem.style.display = "block";
+        } else {
+            resultado.textContent = "Triangulo Escaleno";
+            imagem.src = "imagens/escaleno.png";
+            imagem.style.display = "block";
+        }
     } else {
-        resultado.textContent = "Triangulo Escaleno";
+        resultado.textContent = "Não é um triangulo valido.";
+        imagem.style.display = "none";
     }
-    } else {
-        resultado.textContent = "Nao e um triangulo valido.";
-    }
-        
 }
+
   btCalcular.onclick = function () {
         verificarTriangulo();
 }
