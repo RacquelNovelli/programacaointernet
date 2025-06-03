@@ -1,27 +1,29 @@
-let imputX = document.querySelector ("#LadoX");
-let imputY = document.querySelector ("#LadoY");
-let imputZ = document.querySelector ("#LadoZ");
-let resultado = document.querySelector ("resultadoTriangulo")
+let inputX = document.querySelector ("#ladoX");
+let inputY = document.querySelector ("#ladoY");
+let inputZ = document.querySelector ("#ladoZ");
+let resultado = document.querySelector ("#resultadoTriangulo")
 let btCalcular = document.querySelector("#btCalcular");
 
 function verificarTriangulo () {
-    let X = Number (imputX.value)
-    let Y = Number (imputY.value)
-    let Z = Number (imputZ.value)
+    let X = Number (inputX.value)
+    let Y = Number (inputY.value)
+    let Z = Number (inputZ.value)
 
-    if (x < y + z && y < x + z && z < x + y) {
-    if (x === y && y === z) {
-        paragrafoResultado.textContent = "Triângulo Equilátero";
-    } else if (x === y || x === z || y === z) {
-        paragrafoResultado.textContent = "Triângulo Isósceles";
+    if ((X < (Y + Z)) && (Y < (X + Z)) && (Z < (X + Y))) {
+    if (X === Y && Y === Z) {
+           
+        resultado.textContent = "Triangulo Equilatero";
+    } else if (X === Y || X === Z || Y === Z) {
+        resultado.textContent = "Triangulo Isosceles";
     } else {
-        paragrafoResultado.textContent = "Triângulo Escaleno";
+        resultado.textContent = "Triangulo Escaleno";
     }
     } else {
-        paragrafoResultado.textContent = "Não é um triângulo válido.";
+        resultado.textContent = "Nao e um triangulo valido.";
     }
-        botaoVerificar.onclick = function () {
+        
+}
+  btCalcular.onclick = function () {
         verificarTriangulo();
-};
 }
 
