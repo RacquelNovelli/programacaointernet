@@ -10,7 +10,7 @@ function verificarTriangulo() {
     let Y = Number(inputY.value);
     let Z = Number(inputZ.value);
 
-    imagem.style.display = "none"; // Eu pesquisei para esconder a imagem no início, pq ela estava aparecendo.
+    imagem.style.display = "none"; 
 
     if ((X < Y + Z) && (Y < X + Z) && (Z < X + Y)) {
         if (X === Y && Y === Z) {
